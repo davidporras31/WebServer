@@ -3,17 +3,18 @@
 
 #include <string>
 #include <fstream>
-#include <streambuf>
 
 class WebServor
 {
 public:
-    WebServor(/* args */);
+    WebServor();
     ~WebServor();
 
     std::string ServeFile(std::string path);
+
+    void setOrigin(std::string origin);
 private:
-    /* data */
+    std::string origin;
 };
 
 #endif

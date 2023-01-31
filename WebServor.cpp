@@ -16,13 +16,12 @@ std::string WebServor::ServeFile(std::string path){
 
     if(stream.is_open()){
         stream.seekg(0, std::ios::end);   
-        ret.reserve(stream.tellg());
+        ret.resize(stream.tellg());
         stream.seekg(0, std::ios::beg);
 
-        ret.assign((std::istreambuf_iterator<char>(stream)),
-                    std::istreambuf_iterator<char>());
+        stream.read(&ret[0],ret.size());
+        stream.close();
     }
-    stream.close();
 
     return ret;
 }
