@@ -25,3 +25,8 @@ std::string WebServor::ServeFile(std::string path){
 
     return ret;
 }
+
+void WebServor::setOrigin(std::string origin)
+{
+    this->origin = origin;
+}
