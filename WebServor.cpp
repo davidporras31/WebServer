@@ -16,7 +16,7 @@ std::string WebServor::ServeFile(std::string path){
 
     if(stream.is_open()){
         stream.seekg(0, std::ios::end);   
-        ret.resize(stream.tellg());
+        ret.resize((size_t)stream.tellg());
         stream.seekg(0, std::ios::beg);
 
         stream.read(&ret[0],ret.size());
