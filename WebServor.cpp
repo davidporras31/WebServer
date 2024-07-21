@@ -10,7 +10,8 @@ WebServor::~WebServor()
 }
 std::string WebServor::ServeFile(std::string path){
     std::string ret = "";
-
+    if (path.end().operator->() == "/")
+        path.append("index.html");
     std::ifstream stream;
     stream.open(this->origin + path,std::ifstream::in);
 
